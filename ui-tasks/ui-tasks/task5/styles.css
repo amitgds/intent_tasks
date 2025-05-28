@@ -1,0 +1,35 @@
+/* Custom styles specific to Task 5 */
+
+/* Example styles */
+body {
+    background-color: #f8f9fa; /* Light background */
+    font-family: 'Libre Baskerville', serif; /* Custom font */
+}
+
+.welcomegift {
+    padding: 20px;
+    text-align: center;
+}
+
+.polaroid {
+    border: 1px solid #ccc; /* Border for polaroid effect */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.hover-text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 5px;
+}
+
+.service-menu {
+    margin-top: 20px;
+}
+
+.service-menu label {
+    display: block;
+    margin: 10px 0;
+}

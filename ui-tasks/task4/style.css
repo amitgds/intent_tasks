@@ -1,0 +1,150 @@
+/* Define color variables for reusability */
+:root {
+    --background-dark: #434040; /* Background color for body and .welcomegift */
+    --white: #ffffff; /* White for backgrounds and text */
+    --black: #000000; /* Black for backgrounds, text, and borders */
+    --text-medium-gray: #7b7373; /* Medium gray for cross icon */
+    --overlay-bg: rgba(255, 255, 255, 0.6); /* Semi-transparent white for quiz-product overlays */
+  }
+  
+  /* Reset and base styles */
+  body {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Libre Baskerville", serif;
+    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    background: var(--background-dark);
+  }
+  
+  /* Container for welcome gift section */
+  .welcomegift {
+    background: var(--background-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Navigation tabs styling */
+  .welcomegift .nav-tabs {
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    margin: 0px;
+    padding: 0px;
+}
+  
+  .welcomegift .nav-tabs .nav-link {
+    background: var(--black);
+    padding: 5px 13px;
+    color: var(--white);
+    border-radius: 2px;
+    border: 1px solid var(--black);
+    column-gap: 5px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+  
+  .welcomegift .nav-tabs .nav-link:hover {
+    color: var(--black);
+    background: var(--white);
+  }
+  
+  .welcomegift .nav-tabs .nav-item.show .nav-link,
+  .welcomegift .nav-tabs .nav-link.active {
+    border: 1px solid var(--black);
+    color: var(--black);
+    background: var(--white);
+    cursor: pointer;
+  }
+  
+  /* Quiz product container */
+  .quiz-product {
+    background: url(../assets/img/product.png) no-repeat;
+    background-size: cover;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .quiz-product h6 {
+    color: var(--black);
+    font-size: 21px;
+    text-align: center;
+    background: var(--overlay-bg);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    max-width: 440px;
+    margin-bottom: 7px;
+    font-weight: 600;
+  }
+  
+  .quiz-product p {
+    color: var(--black);
+    font-size: 14px;
+    text-align: center;
+    background: var(--overlay-bg);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    max-width: 440px;
+  }
+  
+  .quiz-product button {
+    background: var(--overlay-bg);
+    backdrop-filter: blur(10px);
+    border: solid 1px var(--black);
+    color: var(--black);
+    padding: 4px 50px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  /* Quiz question and options */
+  .quiz-question {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .quiz-options button {
+    margin: 5px 0;
+  }
+  
+  /* Cross icon for closing */
+  .cross-icon i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--text-medium-gray);
+    cursor: pointer;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 767px) {
+    .quiz-product {
+      padding: 20px;
+    }
+    .quiz-product h6 {
+      font-size: 15px;
+    }
+    .quiz-product p {
+      font-size: 11px;
+    }
+    .welcomegift .nav-tabs .nav-link{
+      margin: 3px 0px;
+    }
+  }

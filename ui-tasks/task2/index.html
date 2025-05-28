@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <title>Welcome Our Gift - Task 2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="welcomegift">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12 mb-5 mt-5 pb-4 text-center">
+          <ul class="nav nav-tabs" id="taskTabs" role="tablist">
+            <li  role="presentation">
+              <a href="../task1/index.html" class="nav-link" >Task-1</a>             
+            </li>
+            <li  role="presentation">
+              <a href="../task2/index.html" class="nav-link active" >Task-2</a>              
+            </li>
+            <li  role="presentation">
+              <a href="../task3/index.html" class="nav-link " >Task-3</a>              
+            </li>
+            <li  role="presentation">
+              <a href="../task4/index.html" class="nav-link" >Task-4</a>              
+            </li>
+            <li  role="presentation">
+              <a href="../task5/index.html" class="nav-link" >Task-5</a>              
+            </li>
+            <li  role="presentation">
+              <a href="../task6/index.html" class="nav-link" >Task-6</a>              
+            </li>
+            <li  role="presentation">
+              <a href="../task7/index.html" class="nav-link" >Task-7</a>              
+            </li>            
+          </ul>
+        </div>
+        <div class="col-xxl-5 col-xl-6 col-lg-8 col-md-9">
+          <div class="tab-content" id="taskTabsContent">
+            <div class="tab-pane fade show active" id="task-2" role="tabpanel" aria-labelledby="task-2-tab">
+              <div class="little-ballon">
+                <div class="background-balloons" id="backgroundBalloons"></div>
+                <div class="content">
+                  <h2 data-aos="fade-down" data-aos-easing="linear" data-aos-duration="700">claire's
+                    <span>We Make Memories</span>
+                  </h2>
+                  <h1 data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500">It's Claire’s Birthday!</h1>
+                  <div id="discount-text">
+                    <p data-aos="fade-up" data-aos-easing="linear" data-aos-duration="400">Pop the balloons to reveal a
+                      discount and help her celebrate her special day!</p>
+                    <span>(Click on the balloons to pop them)</span>
+                  </div>
+                  <div class="game-container">
+                    <div class="balloon" style="left: 10%; animation: floatSide 3s ease-in-out infinite alternate;">
+                      <div class="balloon-string"></div> <h6>Claire's</h6>
+                    </div>
+                    <div class="balloon" style="left: 30%; animation: floatSide 4s ease-in-out infinite alternate;">
+                      <div class="balloon-string"></div> <h6>Claire's</h6>
+                    </div>
+                    <div class="balloon" style="left: 50%; animation: floatSide 2.5s ease-in-out infinite alternate;">
+                      <div class="balloon-string"></div> <h6>Claire's</h6>
+                    </div>
+                    <div class="balloon" style="left: 65%; animation: floatSide 3.5s ease-in-out infinite alternate;">
+                      <div class="balloon-string"></div> <h6>Claire's</h6>
+                    </div>
+                    <div class="balloon" style="left: 80%; animation: floatSide 3.8s ease-in-out infinite alternate;">
+                      <div class="balloon-string"></div> <h6>Claire's</h6>
+                    </div>
+                    <div class="coupon-ballon">
+                      <span>Congratulations! You have won a</span>
+                      <h6>XX% discount on your order today!</h6>
+                      <p>Use the code below at checkout</p>
+                      <div class="copy-code">
+                        <button id="copy-text">Test123 <i class="fa-regular fa-copy"></i></button>
+                      </div>
+                      <div class="con-shopping showNextTab">
+                        <button>Continue Shopping</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cross-icon showNextTab">
+                  <i class="fa-solid fa-xmark"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

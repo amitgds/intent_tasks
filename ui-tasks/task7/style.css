@@ -1,0 +1,69 @@
+/* Define color variables for reusability */
+:root {
+    --background-dark: #434040; /* Background color for body and .welcomegift */
+    --white: #ffffff; /* White for backgrounds and text */
+    --black: #000000; /* Black for backgrounds, text, and borders */
+  }
+  
+  /* Reset and base styles */
+  body {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Libre Baskerville", serif;
+    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    background: var(--background-dark);
+  }
+  
+  /* Container for welcome gift section */
+  .welcomegift {
+    background: var(--background-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Navigation tabs styling */
+.welcomegift .nav-tabs {
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    margin: 0px;
+    padding: 0px;
+}
+  
+  .welcomegift .nav-tabs .nav-link {
+    background: var(--black);
+    padding: 5px 13px;
+    color: var(--white);
+    border-radius: 2px;
+    border: 1px solid var(--black);
+    column-gap: 5px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+  
+  .welcomegift .nav-tabs .nav-link:hover {
+    color: var(--black);
+    background: var(--white);
+  }
+  
+  .welcomegift .nav-tabs .nav-item.show .nav-link,
+  .welcomegift .nav-tabs .nav-link.active {
+    border: 1px solid var(--black);
+    color: var(--black);
+    background: var(--white);
+    cursor: pointer;
+  }
+
+
+    @media (max-width: 767px) {
+    .welcomegift .nav-tabs .nav-link{
+      margin: 3px 0px;
+    }
+  }

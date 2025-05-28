@@ -1,0 +1,65 @@
+body {
+    font-family: 'Libre Baskerville', serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.welcomegift {
+    padding: 50px 0;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    border-radius: 0;
+    color: #007bff;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.polaroid {
+    position: relative;
+    margin: 20px auto;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.photo img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.hover-text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.service-menu {
+    margin-top: 20px;
+}
+
+.service-menu label {
+    display: block;
+    margin: 10px 0;
+}
+
+.cross-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #dc3545;
+}

@@ -1,0 +1,235 @@
+/* Define color variables for reusability */
+:root {
+    --background-dark: #434040; /* Background color for body and .welcomegift */
+    --white: #ffffff; /* White for backgrounds and text */
+    --black: #000000; /* Black for backgrounds, text, and borders */
+    --shadow-dark: rgba(0, 0, 0, 0.2); /* Shadow color for box-shadow */
+    --shadow-light: rgba(0, 0, 0, 0.5); /* Slightly darker shadow for hover effects */
+    --text-dark: #333333; /* Dark text color for hover text */
+    --text-medium: #7b7373; /* Medium gray for cross icon */
+  }
+  
+  /* Reset and base styles */
+  body {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Libre Baskerville", serif;
+    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    background: var(--background-dark);
+  }
+  
+  /* Container for welcome gift section */
+  .welcomegift {
+    background: var(--background-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Navigation tabs styling */
+  .welcomegift .nav-tabs {
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    margin: 0px;
+    padding: 0px;
+}
+  
+  .welcomegift .nav-tabs .nav-link {
+    background: var(--black);
+    padding: 5px 13px;
+    color: var(--white);
+    border-radius: 2px;
+    border: 1px solid var(--black);
+    column-gap: 5px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+  
+  .welcomegift .nav-tabs .nav-link:hover {
+    color: var(--black);
+    background: var(--white);
+  }
+  
+  .welcomegift .nav-tabs .nav-item.show .nav-link,
+  .welcomegift .nav-tabs .nav-link.active {
+    border: 1px solid var(--black);
+    color: var(--black);
+    background: var(--white);
+    cursor: pointer;
+  }
+  
+  /* Little gift container */
+  .little-gift {
+    background: var(--white);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 10px var(--shadow-dark);
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  /* Polaroid photo styling */
+  .polaroid {
+    background: var(--white);
+    padding: 10px;
+    box-shadow: 2px 2px 10px var(--shadow-dark);
+    transform: rotate(-1deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    text-align: center;
+    height: 236px;
+    margin-left: -47px;
+  }
+  
+  .little-gift .photo {
+    width: 180px;
+    height: 240px;
+    background: var(--black);
+    margin-bottom: 10px;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .little-gift .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+  
+  .polaroid:hover .photo {
+    background: url('your-image.jpg') no-repeat center center/cover;
+  }
+  
+  /* Hover text for polaroid */
+  .hover-text {
+    font-size: 12px;
+    color: var(--text-dark);
+  }
+  
+  /* Content section inside little gift */
+  .little-gift .content {
+    padding-left: 36px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .little-gift h1 {
+    font-size: 25px;
+    margin: 5px 0 10px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--black);
+    line-height: 26px;
+    padding: 0 26px;
+  }
+  
+  .little-gift h2 {
+    font-size: 21px;
+    margin: 5px 0;
+    font-weight: bold;
+    text-align: center;
+    color: var(--black);
+    line-height: 26px;
+  }
+  
+  .little-gift p {
+    font-size: 12px;
+    text-align: center;
+    color: var(--black);
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+  
+  .little-gift form {
+    margin-top: 10px;
+  }
+  
+  .little-gift label {
+    font-size: 10px;
+    display: block;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 6px;
+    column-gap: 2px;
+  }
+  
+  .service-menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .little-gift span {
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--black);
+    line-height: 19px;
+  }
+  
+  /* Cross icon for closing */
+  .cross-icon i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--text-medium);
+    cursor: pointer;
+  }
+  
+  /* Responsive styles for smaller screens */
+  @media (max-width: 767px) {
+    .little-gift {
+      flex-direction: column;
+    }
+  
+    .polaroid {
+      margin-bottom: 20px;
+      background: var(--white);
+      padding: 10px;
+      box-shadow: 2px 2px 10px var(--shadow-dark);
+      transform: rotate(-5deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 216px;
+      text-align: center;
+      height: 225px;
+      margin-left: -68px;
+      margin-top: -76px;
+      margin-bottom: 23px;
+    }
+  
+    .little-gift h1 {
+      font-size: 21px;
+    }
+  
+    .little-gift span {
+      font-size: 12px;
+    }
+  
+    .little-gift h2 {
+      font-size: 18px;
+    }
+  
+    .little-gift .content {
+      padding-left: 0;
+    }
+    .welcomegift .nav-tabs{
+      margin-bottom: 23px;
+    }
+    .welcomegift .nav-tabs .nav-link{
+      margin: 3px 0px;
+    }
+  }

@@ -1,0 +1,201 @@
+/* Define color variables for reusability */
+:root {
+    --background-dark: #434040; /* Background color for body and .welcomegift */
+    --white: #ffffff; /* White for backgrounds, text, and borders */
+    --black: #000000; /* Black for backgrounds, text, and borders */
+    --gift-cards-bg: #ededed; /* Background color for gift-cards container */
+    --overlay-dark: rgba(0, 0, 0, 0.4); /* Dark overlay for gc-card hover effect */
+    --shadow-dark: rgba(0, 0, 0, 0.5); /* Shadow for card-front on hover */
+    --shadow-label: rgba(0, 0, 0, 0.4); /* Shadow for tp-label */
+    --card-message-bg: rgba(255, 255, 255, 0.8); /* Semi-transparent background for card-message */
+    --text-medium-gray: #7b7373; /* Medium gray for cross icon */
+  }
+  
+  /* Reset and base styles */
+  body {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Libre Baskerville", serif;
+    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    background: var(--background-dark);
+  }
+  
+  /* Container for welcome gift section */
+  .welcomegift {
+    background: var(--background-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Navigation tabs styling */
+ .welcomegift .nav-tabs {
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    margin: 0px;
+    padding: 0px;
+}
+  
+  .welcomegift .nav-tabs .nav-link {
+    background: var(--black);
+    padding: 5px 13px;
+    color: var(--white);
+    border-radius: 2px;
+    border: 1px solid var(--black);
+    column-gap: 5px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+  
+  .welcomegift .nav-tabs .nav-link:hover {
+    color: var(--black);
+    background: var(--white);
+  }
+  
+  .welcomegift .nav-tabs .nav-item.show .nav-link,
+  .welcomegift .nav-tabs .nav-link.active {
+    border: 1px solid var(--black);
+    color: var(--black);
+    background: var(--white);
+    cursor: pointer;
+  }
+  
+  /* Gift cards container */
+  .gift-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    position: relative;
+    perspective: 1000px;
+    align-items: center;
+    justify-content: center;
+    background: var(--gift-cards-bg);
+    padding: 15px 20px;
+    border-radius: 10px;
+  }
+  
+  /* Gift card styling */
+  .gc-card {
+    position: relative;
+    transition: transform 0.6s ease-in-out;
+  }
+  
+  .gc-card:hover:after {
+    content: "";
+    background: var(--overlay-dark);
+    backdrop-filter: blur(5px);
+    filter: blur(5px);
+    transition: all 0.5s ease-in-out;
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    top: 14px;
+    left: 0;
+    z-index: 9;
+    transition: transform 0.6s ease-in-out;
+  }
+  
+  .card-front {
+    width: 110px;
+    height: 110px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    background: url(../asstes/img/yellow-bg.png) no-repeat center center;
+    background-size: 100% 100%;
+    border-radius: 5px;
+    border: 1px solid var(--white);
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.6s ease-in-out;
+    transform-origin: bottom left;
+    z-index: 99;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--white);
+    font-weight: 600;
+  }
+  
+  .gc-card:hover .card-front {
+    transform: rotateX(10deg) rotateY(-40deg);
+    border: 1px dashed var(--white);
+    box-shadow: 0 5px 5px var(--shadow-dark);
+    transition: ease-in-out 0.6s;
+  }
+  
+  /* Background variations for cards */
+  .yellow-bg {
+    background: url(../assets/img/yellow-bg.png) no-repeat center center !important;
+  }
+  
+  .green-bg {
+    background: url(../assets/img/green-bg.png) no-repeat center center !important;
+  }
+  
+  .red-bg {
+    background: url(../assets/img/red-bg.png) no-repeat center center !important;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  /* Card message styling */
+  .card-message {
+    position: absolute;
+    top: 45%;
+    left: 5%;
+    background: var(--card-message-bg);
+    color: var(--black);
+    width: 90%;
+    font-size: 13px;
+    z-index: 999;
+    transform: translate(0%, 0);
+    border-radius: 10px;
+    padding: 5px 15px;
+  }
+  
+  /* Top label styling */
+  .tp-label {
+    position: absolute;
+    top: -33px;
+    left: -118px;
+    background: var(--white);
+    border-radius: 15px;
+    font-size: 11px;
+    padding: 13px 10px;
+    z-index: 999;
+    font-weight: 600;
+    box-shadow: 3px 6px 8px -1px var(--shadow-label);
+    transform: rotate(-11deg);
+  }
+  
+  /* Cross icon for closing */
+  .cross-icon i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--text-medium-gray);
+    cursor: pointer;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 767px) {
+    .tp-label {
+      left: 0;
+    }
+    .welcomegift .nav-tabs .nav-link{
+      margin: 3px 0px;
+    }
+  }

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <title>Welcome Our Gift - Task 1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="welcomegift">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12 mb-5 mt-5 pb-4 text-center">
+          <ul class="nav nav-tabs" id="taskTabs" role="tablist">
+            <li  role="presentation">
+              <a href="../task1/index.html" class="nav-link active" >Task-1</a>                   
+            </li>
+            <li  role="presentation">
+              <a href="../task2/index.html" class="nav-link" >Task-2</a>              
+            </li>
+            <li  role="presentation">
+              <a href="../task3/index.html" class="nav-link" >Task-3</a>              
+            </li>
+            <li  role="presentation">
+              <a href="../task4/index.html" class="nav-link" >Task-4</a>              
+            </li>
+            <li  role="presentation">
+              <a href="../task5/index.html" class="nav-link" >Task-5</a>              
+            </li>
+            <li  role="presentation">
+              <a href="../task6/index.html" class="nav-link" >Task-6</a>              
+            </li>
+            <li  role="presentation">
+              <a href="../task7/index.html" class="nav-link" >Task-7</a>              
+            </li>            
+          </ul>
+        </div>
+        <div class="col-xxl-5 col-xl-6 col-lg-8 col-md-9">
+          <div class="tab-content" id="taskTabsContent">
+            <div class="tab-pane fade show active" id="task-1" role="tabpanel" aria-labelledby="task-1-tab">
+              <div class="little-gift">
+                <div id="polaroid" class="polaroid">
+                  <div class="photo">
+                    <img src="../assets/img/yacht.jpg" class="img-fluid" alt="spa" id="spaImage">
+                    <img src="../assets/img/inn.jpg" class="img-fluid" alt="spa" id="villaImage" style="display: none;">
+                    <img src="../assets/img/super_yatch.png" class="img-fluid" alt="spa" id="yachtImage" style="display: none;">
+                  </div>
+                  <p class="hover-text">hover to develop</p>
+                </div>
+                <div class="content">
+                  <h2>secret escapes</h2>
+                  <h1>A little welcome back gift</h1>
+                  <p>Develop the polaroid and we'll give you £50 credit to use towards your next trip.</p>
+                  <span>Just tell us what's in the photo and claim your reward.</span>
+                  <form>
+                    <div class="service-menu">
+                      <label><input type="radio" checked="checked" name="option" value="spa"> A spa hotel</label>
+                      <label><input type="radio" name="option" value="villa"> A country inn</label>
+                      <label><input type="radio" name="option" value="yacht"> A superyacht</label>
+                    </div>
+                  </form>
+                </div>
+                <div class="cross-icon showNextTab">
+                  <i class="fa-solid fa-xmark"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

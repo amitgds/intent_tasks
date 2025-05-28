@@ -1,0 +1,241 @@
+/* Define color variables for reusability */
+:root {
+    --background-dark: #434040; /* Background color for body and .welcomegift */
+    --white: #ffffff; /* White for backgrounds, text, and borders */
+    --black: #000000; /* Black for backgrounds, text, and borders */
+    --shadow-dark: rgba(0, 0, 0, 0.2); /* Shadow color for box-shadow */
+    --popup-bg: #1abc9c; /* Background color for popup */
+    --button-bg: #f1c40f; /* Background color for popup button */
+    --button-hover-bg: #e1b307; /* Hover background color for popup button */
+    --placeholder-text: #414141; /* Placeholder text color for email input */
+    --discount-text-red: red; /* Color for close button on hover */
+    --border-yellow: #ecc3007a; /* Border color for slide on smaller screens */
+  }
+  
+  /* Reset and base styles */
+  body {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Libre Baskerville", serif;
+    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    background: var(--background-dark);
+  }
+  
+  /* Container for welcome gift section */
+  .welcomegift {
+    background: var(--background-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Navigation tabs styling */
+  .welcomegift .nav-tabs {
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    margin: 0px;
+    padding: 0px;
+}
+  
+  .welcomegift .nav-tabs .nav-link {
+    background: var(--black);
+    padding: 5px 13px;
+    color: var(--white);
+    border-radius: 2px;
+    border: 1px solid var(--black);
+    column-gap: 5px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+  
+  .welcomegift .nav-tabs .nav-link:hover {
+    color: var(--black);
+    background: var(--white);
+  }
+  
+  .welcomegift .nav-tabs .nav-item.show .nav-link,
+  .welcomegift .nav-tabs .nav-link.active {
+    border: 1px solid var(--black);
+    color: var(--black);
+    background: var(--white);
+    cursor: pointer;
+  }
+  
+  /* Slideshow container */
+  .slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+  }
+  
+  /* Slide styling */
+  .slide {
+    display: none;
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .active {
+    display: block;
+  }
+  
+  .fade {
+    animation: fade 1.5s ease-in-out;
+  }
+  
+  @keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+  }
+  
+  /* Popup styling */
+  .popup {
+    position: absolute;
+    bottom: 0;
+    right: -90px;
+    background-color: var(--popup-bg);
+    padding: 20px;
+    border-radius: 5px 5px 5px 0;
+    text-align: center;
+    color: var(--white);
+    width: 300px;
+    box-shadow: 0 4px 8px var(--shadow-dark);
+    z-index: 10;
+  }
+  
+  .popup h2 {
+    margin: 0;
+    font-size: 18px;
+    text-transform: lowercase;
+  }
+  
+  .popup p {
+    margin: 4px 0;
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+  
+  .popup input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 2px;
+    font-size: 12px;
+    text-align: center;
+    outline: none;
+  }
+  
+  .popup .links p {
+    font-size: 8px;
+  }
+  
+  .popup button {
+    background-color: var(--button-bg);
+    color: var(--white);
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 12px;
+    width: 100%;
+  }
+  
+  .popup button:hover {
+    background-color: var(--button-hover-bg);
+  }
+  
+  .popup .links {
+    margin-top: 8px;
+    font-size: 10px;
+  }
+  
+  .popup .links a {
+    color: var(--white);
+    text-decoration: underline;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 16px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    line-height: 0;
+    transition: 0.3s ease-in all;
+  }
+  
+  .popup span.close-btn:hover {
+    color: var(--discount-text-red);
+  }
+  
+  input[type="email"]::placeholder {
+    font-weight: 600;
+    color: var(--placeholder-text);
+    outline: none;
+    text-transform: uppercase;
+  }
+  
+  .popup span.Discount {
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 42px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 991px) {
+    .welcomegift .col-lg-6.col-md-6 {
+      width: 80%;
+    }
+    .popup {
+      right: -50px;
+    }
+    .popup p {
+      margin: 2px 0;
+      font-size: 12px;
+    }
+    .popup span.Discount {
+      font-size: 42px;
+      line-height: 40px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .welcomegift .col-lg-6.col-md-6 {
+      width: 100%;
+    }
+    .slideshow-container {
+      height: auto;
+    }
+    .slide {
+      height: 250px;
+      position: unset;
+      margin: 15px 0 0;
+      border-radius: 10px;
+      border: 1px solid var(--border-yellow);
+    }
+    .popup {
+      width: 92%;
+      position: relative;
+      margin: 15px 0 0;
+      top: auto;
+      right: auto;
+      border-radius: 10px;
+      margin-top: -32px;
+    }
+    .welcomegift .nav-tabs .nav-link{
+      margin: 3px 0px;
+    }
+  }

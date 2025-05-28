@@ -1,0 +1,32 @@
+body {
+    background-color: #f8f9fa; /* Light background for better contrast */
+    font-family: 'Libre Baskerville', serif; /* Custom font from Google Fonts */
+}
+
+h1, h2 {
+    color: #343a40; /* Dark color for headings */
+}
+
+.service-menu {
+    margin: 20px 0; /* Spacing around the service menu */
+}
+
+.service-menu label {
+    display: block; /* Stack radio buttons vertically */
+    margin-bottom: 10px; /* Space between radio buttons */
+}
+
+.hover-text {
+    font-size: 1.2em; /* Slightly larger font for hover text */
+    color: #6c757d; /* Muted color for hover text */
+}
+
+.cross-icon {
+    cursor: pointer; /* Change cursor to pointer for clickable icon */
+    color: #dc3545; /* Red color for the close icon */
+    font-size: 2em; /* Larger icon size */
+}
+
+.cross-icon:hover {
+    color: #c82333; /* Darker red on hover */
+}

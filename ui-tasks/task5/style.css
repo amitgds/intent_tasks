@@ -1,0 +1,252 @@
+/* Define color variables for reusability */
+:root {
+    --background-dark: #434040; /* Background color for body and .welcomegift */
+    --white: #ffffff; /* White for backgrounds, text, and borders */
+    --black: #000000; /* Black for backgrounds, text, and borders */
+    --shadow-dark: rgba(0, 0, 0, 0.2); /* Shadow color for box-shadow */
+    --shadow-light: rgba(0, 0, 0, 0.08); /* Lighter shadow for buttons */
+    --text-medium-gray: #7b7373; /* Medium gray for cross icon */
+    --gradient-blue-start: #00204a; /* Gradient start for save-sharp */
+    --gradient-blue-end: #0f8b8d; /* Gradient end for save-sharp */
+    --start-meter-bg: #017eb6; /* Background color for start-meter */
+    --button-bg: #0a74b9; /* Background color for save-sharp button */
+    --target-blue: rgb(8, 88, 173); /* Color for target element */
+  }
+  
+  /* Reset and base styles */
+  body {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Libre Baskerville", serif;
+    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    background: var(--background-dark);
+  }
+  
+  /* Container for welcome gift section */
+  .welcomegift {
+    background: var(--background-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Navigation tabs styling */
+ .welcomegift .nav-tabs {
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    margin: 0px;
+    padding: 0px;
+}
+  
+  .welcomegift .nav-tabs .nav-link {
+    background: var(--black);
+    padding: 5px 13px;
+    color: var(--white);
+    border-radius: 2px;
+    border: 1px solid var(--black);
+    column-gap: 5px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+  
+  .welcomegift .nav-tabs .nav-link:hover {
+    color: var(--black);
+    background: var(--white);
+  }
+  
+  .welcomegift .nav-tabs .nav-item.show .nav-link,
+  .welcomegift .nav-tabs .nav-link.active {
+    border: 1px solid var(--black);
+    color: var(--black);
+    background: var(--white);
+    cursor: pointer;
+  }
+  
+  /* Timer gift container */
+  .timer-gift {
+    background: var(--white) url("../asstes/img/square-bg.png") no-repeat center center;
+    background-size: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 10px var(--shadow-dark);
+    border-radius: 5px;
+    position: relative;
+    height: 350px;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  /* Timer and score data */
+  .timer-data {
+    position: absolute;
+    top: 21px;
+    left: 21px;
+  }
+  
+  .timer-data h6 {
+    font-size: 12px;
+    color: var(--black);
+  }
+  
+  .score-data {
+    position: absolute;
+    bottom: 21px;
+    left: 21px;
+  }
+  
+  .score-data h6 {
+    font-size: 12px;
+    color: var(--black);
+  }
+  
+  /* Start area and game */
+  .startArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .start-game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .start-meter {
+    background: var(--start-meter-bg);
+    padding: 15px 25px 4px;
+    color: var(--black);
+  }
+  
+  .start-meter p {
+    font-size: 13px;
+  }
+  
+  .st-btn button {
+    background: var(--white);
+    border-radius: 2px;
+    padding: 5px 33px;
+    font-size: 17px;
+    font-weight: 500;
+    border: none;
+    color: var(--start-meter-bg);
+    box-shadow: 0 5px 5px var(--shadow-light);
+    margin-top: -13px;
+    display: flex;
+  }
+  
+  /* Save sharp section */
+  .save-sharp {
+    background: linear-gradient(to right, var(--gradient-blue-start), var(--gradient-blue-end));
+    padding: 20px;
+    border-radius: 0;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    flex-direction: column;
+  }
+  
+  .save-sharp p {
+    font-size: 13px;
+    color: var(--white);
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  
+  .save-sharp h1 {
+    font-size: 53px;
+    color: var(--white);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .save-sharp span {
+    font-size: 13px;
+    color: var(--white);
+    margin-bottom: 5px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 13px;
+  }
+  
+  .save-sharp button {
+    border-radius: 2px;
+    padding: 7px 25px;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    color: var(--white);
+    background: var(--button-bg);
+    font-family: "Poppins", sans-serif;
+  }
+  
+  /* Cross icon for closing */
+  .cross-icon i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--text-medium-gray);
+    cursor: pointer;
+  }
+  
+  .save-sharp .cross-icon i {
+    background: var(--white);
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    color: var(--black);
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Message container */
+  .message-container {
+    display: none;
+    padding: 20px;
+    color: var(--white);
+    text-align: center;
+    font-size: 18px;
+    border-radius: 0;
+  }
+  
+  /* Target element */
+  .target {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: var(--target-blue);
+    cursor: url(https://wds4.projectstatus.co.uk/designs/PHP-Node-Lead/assets/img/aim.png), crosshair;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 767px) {
+    .save-sharp h1 {
+      font-size: 33px;
+    }
+    .save-sharp p {
+      padding-top: 22px;
+    }
+    .welcomegift .nav-tabs .nav-link{
+      margin: 3px 0px;
+    }
+  }

@@ -1,0 +1,403 @@
+/* Define color variables for reusability */
+:root {
+    --background-dark: #434040; /* Background color for body and .welcomegift */
+    --white: #ffffff; /* White for backgrounds, text, and borders */
+    --black: #000000; /* Black for backgrounds, text, and borders */
+    --gradient-purple-start: #5E1CA5; /* Gradient start for .little-ballon */
+    --gradient-purple-mid: #8445BF; /* Gradient middle for .little-ballon */
+    --gradient-purple-end: #9B56D6; /* Gradient end for .little-ballon */
+    --gradient-balloon: #04aa6d; /* Balloon background gradient color */
+    --gradient-string-start: #ffffff; /* Balloon string gradient start */
+    --gradient-string-end: #e55a8d; /* Balloon string gradient end */
+    --shadow-light: rgba(255, 255, 255, 0.3); /* Light shadow for balloons */
+    --shadow-medium: rgba(255, 255, 255, 0.6); /* Medium shadow for balloons */
+    --shadow-strong: rgba(255, 255, 255, 0.8); /* Strong shadow for balloons */
+    --shadow-bright: rgba(255, 255, 255, 0.9); /* Bright shadow for hover effects */
+    --text-dark-cyan: #004A4E; /* Text color for balloon h6 */
+    --text-dark-purple: #361761; /* Text color for coupon-ballon h6 */
+    --text-dark-gray: #333333; /* Text color for copy-code button */
+    --bg-light-gray: #D9D9D9; /* Background for copy-code button */
+    --border-gray: #b3aeae; /* Border color for copy-code icon */
+    --bg-pink: #C00055; /* Background for con-shopping button */
+  }
+  
+  /* Reset and base styles */
+  body {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Libre Baskerville", serif;
+    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    background: var(--background-dark);
+  }
+  
+  /* Container for welcome gift section */
+  .welcomegift {
+    background: var(--background-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Navigation tabs styling */
+  .welcomegift .nav-tabs {
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    margin: 0px;
+    padding: 0px;
+}
+
+  .game-container{
+    position: relative;
+    
+  }
+  
+  .welcomegift .nav-tabs .nav-link {
+    background: var(--black);
+    padding: 5px 13px;
+    color: var(--white);
+    border-radius: 2px;
+    border: 1px solid var(--black);
+    column-gap: 5px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+  
+  .welcomegift .nav-tabs .nav-link:hover {
+    color: var(--black);
+    background: var(--white);
+  }
+  
+  .welcomegift .nav-tabs .nav-item.show .nav-link,
+  .welcomegift .nav-tabs .nav-link.active {
+    border: 1px solid var(--black);
+    color: var(--black);
+    background: var(--white);
+    cursor: pointer;
+  }
+  
+  /* Little balloon container */
+  .little-ballon {
+    background: linear-gradient(135deg, var(--gradient-purple-start), var(--gradient-purple-mid), var(--gradient-purple-end));
+    padding: 10px;
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .little-ballon h2 {
+    text-align: center;
+    color: var(--white);
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .little-ballon h2 span {
+    font-size: 11px;
+    font-style: italic;
+    font-weight: 300;
+  }
+  
+  .little-ballon h1 {
+    text-align: center;
+    color: var(--white);
+    font-size: 37px;
+    font-weight: bold;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+  }
+  
+  .little-ballon p {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 0;
+    text-align: center;
+  }
+  
+  .little-ballon span {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 0;
+    text-align: center;
+    display: block;
+  }
+  
+  .little-ballon .cross-icon i {
+    position: absolute;
+    top: 11px;
+    right: 19px;
+    color: var(--white);
+    cursor: pointer;
+  }
+  
+  /* Balloon styling */
+  .balloon {
+    display: flex;
+    width: 60px;
+    height: 75px;
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    background: linear-gradient(135deg, var(--gradient-balloon) 0%, var(--gradient-balloon) 20%, var(--gradient-balloon) 40%, var(--gradient-balloon) 60%, var(--gradient-balloon) 80%, var(--gradient-balloon) 100%);
+    position: absolute;
+    bottom: auto;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 20px 30px;
+    box-shadow: 0 0 15px var(--shadow-strong), 0 0 30px var(--shadow-medium);
+    background-size: 200% 200%;
+    animation: rainbowShine 4s linear infinite;
+    z-index: 9;
+  }
+  
+  .balloon:before {
+    content: "▲";
+    font-size: 20px;
+    color: var(--gradient-balloon);
+    display: block;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: -12px;
+    z-index: -100;
+  }
+  
+  .balloon-string {
+    position: absolute;
+    bottom: -33px;
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to bottom, var(--gradient-string-start), var(--gradient-string-end));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    box-shadow: 0 0 5px var(--shadow-strong);
+  }
+  
+  .balloon h6 {
+    font-size: 12px;
+    color: var(--text-dark-cyan);
+  }
+  
+  /* Animations */
+  @keyframes floatSide {
+    0%, 100% {
+      transform: translateX(-20px);
+    }
+    50% {
+      transform: translateX(20px);
+    }
+  }
+  
+  @keyframes rainbowShine {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  .balloon:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 0 20px var(--shadow-bright), 0 0 40px var(--shadow-strong);
+  }
+  
+  /* Background balloons container */
+  .background-balloons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 7;
+    overflow: hidden;
+  }
+  
+  .bg-balloon {
+    position: absolute;
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    opacity: 0.7;
+    animation: floatUp linear infinite;
+    box-shadow: 0 0 10px var(--shadow-light);
+    bottom: -100px;
+  }
+  
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.7;
+    }
+    90% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Particle effect for balloon popping */
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+    transform: translateZ(0);
+  }
+  
+  /* Coupon balloon styling */
+  .coupon-ballon {
+    position: relative;
+    z-index: 99999;
+  }
+  
+  .coupon-ballon span {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 0;
+    text-align: center;
+    display: block;
+  }
+  
+  .coupon-ballon h6 {
+    font-size: 23px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-dark-purple);
+  }
+  
+  .coupon-ballon p {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 0;
+    text-align: center;
+    display: block;
+  }
+  
+  /* Copy code button */
+  .copy-code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .copy-code button {
+    background: var(--bg-light-gray);
+    border: none;
+    color: var(--text-dark-gray);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 60px 4px 52px;
+    position: relative;
+  }
+  
+  .copy-code i {
+    background: var(--white);
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 27px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: solid 1px var(--border-gray);
+  }
+  
+  /* Continue shopping button */
+  .con-shopping {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .con-shopping button {
+    background: var(--bg-pink);
+    border: none;
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 29px;
+    margin-top: 20px;
+    position: relative;
+  }
+
+  .balloon h6{
+    color: var(--white);
+    font-size: 16px;
+    margin-bottom: 0px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 1280px) {
+    .little-ballon h1 {
+      font-size: 30px;
+    }
+    .little-ballon p {
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .little-ballon h1 {
+      font-size: 27px;
+    }
+    .little-ballon p {
+      font-size: 13px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .balloon {
+      width: 46px;
+      height: 47px;
+      margin: 20px 10px;
+    }
+    .little-ballon h1 {
+      font-size: 21px;
+    }
+    .little-ballon {
+      height: 270px;
+    }
+    .little-ballon p {
+      font-size: 12px;
+    }
+    .balloon h6 {
+      font-size: 12px;
+    }
+    .coupon-ballon h6 {
+      font-size: 17px;
+    }
+    .little-ballon h2 {
+      font-size: 24px;
+    }
+    .con-shopping button {
+      margin-top: 0;
+    }
+    .welcomegift .nav-tabs .nav-link{
+      margin: 3px 0px;
+    }
+
+  }
