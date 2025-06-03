@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   // Initialize GSAP and ScrollTrigger
   gsap.registerPlugin(ScrollTrigger);
 
@@ -12,19 +12,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const yachtImage = document.getElementById("yachtImage");
   const polaroid = document.getElementById("polaroid");
 
-  rewardRadios.forEach((radio) => {
+  rewardRadios.forEach(radio => {
     radio.addEventListener("change", () => {
       selectedReward = radio.value;
 
-      spaImage.style.display = "none";
-      villaImage.style.display = "none";
-      yachtImage.style.display = "none";
+      [spaImage, villaImage, yachtImage].forEach(img => {
+        if (img) img.style.display = "none";
+      });
 
-      if (selectedReward === "spa") {
+      if (selectedReward === "spa" && spaImage) {
         spaImage.style.display = "block";
-      } else if (selectedReward === "villa") {
+      } else if (selectedReward === "villa" && villaImage) {
         villaImage.style.display = "block";
-      } else if (selectedReward === "yacht") {
+      } else if (selectedReward === "yacht" && yachtImage) {
         yachtImage.style.display = "block";
       }
     });

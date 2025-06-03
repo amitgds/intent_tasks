@@ -22,6 +22,8 @@ new-cracker/
 │   ├── index.php         # Main entry point
 │   ├── app.js            # Front-end JavaScript
 │   └── styles.css        # CSS styles
+├── scripts/
+│   └── import_database.php  # Script to import database
 ├── src/
 │   ├── autoload.php      # Autoloader for PHP classes
 │   ├── Api/
@@ -130,7 +132,14 @@ new-cracker/
        db-data:
      ```
 
-5. **Build and Run the Docker Containers**:
+5. **Import the Database**:
+   - Run the following command to import the database using the provided script:
+     ```bash
+     php scripts/import_database.php --host=localhost --user=root --password='rootpassword' --database=password_cracker --file='data/init.sql'
+     ```
+   - This script initializes the MySQL database with the schema and data from `data/init.sql`.
+
+6. **Build and Run the Docker Containers**:
    - Navigate to the `new-cracker` directory:
      ```bash
      cd /path/to/new-cracker
@@ -144,7 +153,7 @@ new-cracker/
      - Start a MySQL container (`db`) and initialize the database using `data/init.sql`.
      - Map port `8080` on your host to port `80` in the container.
 
-6. **Verify the Containers**:
+7. **Verify the Containers**:
    - Check that the containers are running:
      ```bash
      docker-compose ps
@@ -186,6 +195,7 @@ new-cracker/
     docker-compose logs db
     ```
   - Verify the credentials in `config/.env` match the `docker-compose.yml` settings.
+  - Confirm the database was imported correctly using the `import_database.php` script.
 - **MySQL Deprecation Warning**:
   - If you see a warning about `mysql_native_password`, update the MySQL user:
     ```bash
@@ -207,7 +217,6 @@ new-cracker/
 - PHP errors are logged to `logs/php_error.log`.
 - The database data is persisted in a Docker volume (`db-data`).
 
-
 # Password Cracker AWS Infrastructure
 
 This Terraform project provisions AWS infrastructure for a password-cracker application using EC2, RDS, and Docker.
@@ -220,25 +229,31 @@ This Terraform project provisions AWS infrastructure for a password-cracker appl
 - Security groups and networking setup
 - Auto-deployment from a GitHub repo (update URL in `main.tf`)
 
-##  Usage
+## Usage
 
 1. Update the GitHub repo URL in `main.tf` (`user_data` section).
 2. Ensure your EC2 key pair exists in AWS.
 3. Run:
-
-```bash
-terraform init
-terraform apply -var="key_name=your-key-name"
-````
+   ```bash
+   terraform init
+   terraform apply -var="key_name=your-key-name"
+   ```
 
 4. SSH into EC2:
+   ```bash
+   ssh -i ~/.ssh/your-key-name.pem ec2-user@<public_ip>
+   ```
 
-```bash
-ssh -i ~/.ssh/your-key-name.pem ec2-user@<public_ip>
-```
+5. **Import the Database on EC2**:
+   - After SSHing into the EC2 instance, navigate to the project directory and run:
+     ```bash
+     php scripts/import_database.php --host=localhost --user=root --password='rootpassword' --database=password_cracker --file='data/init.sql'
+     ```
+   - Ensure the `init.sql` file is present in the `data/` directory and the RDS endpoint is correctly configured.
 
 ## Outputs
 
-* EC2 public IP
-* RDS endpoint
-* SSH command for EC2
+- EC2 public IP
+- RDS endpoint
+- SSH command for EC2
+

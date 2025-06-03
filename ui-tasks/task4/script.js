@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   // Initialize GSAP and ScrollTrigger
   gsap.registerPlugin(ScrollTrigger);
 
@@ -13,34 +13,36 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentQuestion = 0;
 
   const startQuizButton = document.getElementById("start-quiz");
-  if (startQuizButton) {
-    startQuizButton.addEventListener("click", () => {
-      document.getElementById("quiz-title").style.display = "none";
-      document.getElementById("quiz-description").style.display = "none";
-      document.getElementById("start-quiz").style.display = "none";
-      document.getElementById("quiz-content").style.display = "block";
-      loadQuestion();
-    });
-  }
+  const quizTitle = document.getElementById("quiz-title");
+  const quizDescription = document.getElementById("quiz-description");
+  const quizContent = document.getElementById("quiz-content");
+  const questionText = document.getElementById("question-text");
+  const optionsContainer = document.getElementById("options");
+
+  startQuizButton?.addEventListener("click", () => {
+    quizTitle.style.display = "none";
+    quizDescription.style.display = "none";
+    startQuizButton.style.display = "none";
+    quizContent.style.display = "block";
+    loadQuestion();
+  });
 
   function loadQuestion() {
     if (currentQuestion < quizData.length) {
-      document.getElementById("question-text").textContent = quizData[currentQuestion].question;
-      const optionsContainer = document.getElementById("options");
+      questionText.textContent = quizData[currentQuestion].question;
       optionsContainer.innerHTML = "";
-      quizData[currentQuestion].options.forEach((option, index) => {
+      quizData[currentQuestion].options.forEach(option => {
         const button = document.createElement("button");
-        button.dataset.next = index;
         button.textContent = option;
         optionsContainer.appendChild(button);
       });
     } else {
-      document.getElementById("quiz-content").innerHTML = "<p>Thank you for completing the quiz!</p>";
+      quizContent.innerHTML = "<p>Thank you for completing the quiz!</p>";
     }
   }
 
-  document.addEventListener("click", (e) => {
-    if (e.target.matches(".quiz-options button")) {
+  optionsContainer?.addEventListener("click", e => {
+    if (e.target.tagName === "BUTTON") {
       currentQuestion++;
       loadQuestion();
     }

@@ -3,13 +3,12 @@
 <head>
   <title>Welcome Our Gift - Task 3</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400; plurals0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,26 +17,26 @@
       <div class="row justify-content-center">
         <div class="col-md-12 mb-5 mt-5 pb-4 text-center">
           <ul class="nav nav-tabs" id="taskTabs" role="tablist">
-            <li  role="presentation">
-              <a href="../task1/index.html" class="nav-link" >Task-1</a>                
+            <li role="presentation">
+              <a href="../task1/index.html" class="nav-link" id="task-1-tab" role="tab">Task-1</a>                
             </li>
-            <li  role="presentation">
-              <a href="../task2/index.html" class="nav-link" >Task-2</a>              
+            <li role="presentation">
+              <a href="../task2/index.html" class="nav-link" id="task-2-tab" role="tab">Task-2</a>              
             </li>
-            <li  role="presentation">
-              <a href="../task3/index.html" class="nav-link active" >Task-3</a>              
+            <li role="presentation">
+              <a href="../task3/index.html" class="nav-link active" id="task-3-tab" role="tab" aria-controls="task-3">Task-3</a>              
             </li>
-            <li  role="presentation">
-              <a href="../task4/index.html" class="nav-link" >Task-4</a>              
+            <li role="presentation">
+              <a href="../task4/index.html" class="nav-link" id="task-4-tab" role="tab">Task-4</a>              
             </li>
-            <li  role="presentation">
-              <a href="../task5/index.html" class="nav-link" >Task-5</a>              
+            <li role="presentation">
+              <a href="../task5/index.html" class="nav-link" id="task-5-tab" role="tab">Task-5</a>              
             </li>
-            <li  role="presentation">
-              <a href="../task6/index.html" class="nav-link" >Task-6</a>              
+            <li role="presentation">
+              <a href="../task6/index.html" class="nav-link" id="task-6-tab" role="tab">Task-6</a>              
             </li>
-            <li  role="presentation">
-              <a href="../task7/index.html" class="nav-link" >Task-7</a>              
+            <li role="presentation">
+              <a href="../task7/index.html" class="nav-link" id="task-7-tab" role="tab">Task-7</a>              
             </li>            
           </ul>
         </div>
@@ -49,13 +48,14 @@
                 <img class="slide fade" src="../assets/img/spa.jpg" alt="Spa">
                 <img class="slide fade" src="../assets/img/yacht.jpg" alt="Yacht">
                 <div class="popup">
-                  <span class="close-btn showNextTab">×</span>
+                  <span class="close-btn showNextTab"><i class="fa-solid fa-xmark"></i></span>
                   <h2>GARDEN TRENDS</h2>
                   <p>HURRY! ENTER YOUR EMAIL FOR</p>
-                  <span class="Discount">2.5% OFF</span>
+                  <span class="discount">2.5% OFF</span>
                   <p>Lorem ipsum dolor sit amet</p>
-                  <input type="email" placeholder="Enter your email here">
-                  <button class="showNextTab">REVEAL MY VOUCHER CODE</button>
+                  <label for="email-input" class="visually-hidden">Enter your email</label>
+                  <input type="email" id="email-input" placeholder="Enter your email here">
+                  <button type="button" class="showNextTab" aria-label="Reveal my voucher code">REVEAL MY VOUCHER CODE</button>
                   <div class="links">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                     <a href="#">Unlock 1% Password</a> | <a href="#">Privacy Policy</a>

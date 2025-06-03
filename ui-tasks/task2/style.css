@@ -98,6 +98,8 @@
     margin-bottom: 0;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 99999;
   }
   
   .little-ballon h2 span {
@@ -115,6 +117,8 @@
     display: flex;
     flex-direction: column;
     padding: 5px 0;
+    position: relative;
+    z-index: 99999;
   }
   
   .little-ballon p {
@@ -123,6 +127,8 @@
     color: var(--white);
     margin-bottom: 0;
     text-align: center;
+    position: relative;
+    z-index: 99999;
   }
   
   .little-ballon span {
@@ -132,6 +138,8 @@
     margin-bottom: 0;
     text-align: center;
     display: block;
+    position: relative;
+    z-index: 99999;
   }
   
   .little-ballon .cross-icon i {

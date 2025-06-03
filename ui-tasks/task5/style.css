@@ -71,7 +71,7 @@
   
   /* Timer gift container */
   .timer-gift {
-    background: var(--white) url("../asstes/img/square-bg.png") no-repeat center center;
+    background: var(--white) url("../assets/img/square-bg.png") no-repeat center center;
     background-size: 100%;
     padding: 20px;
     display: flex;
