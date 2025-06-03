@@ -1,5 +1,5 @@
 provider "aws" {
-  region = var.aws_region
+  region = "us-east-1"
 }
 
 # VPC
@@ -10,24 +10,14 @@ resource "aws_vpc" "main" {
   }
 }
 
-# Public Subnet
+# Subnets
 resource "aws_subnet" "public" {
-  vpc_id                  = aws_vpc.main.id
-  cidr_block              = "10.0.1.0/24"
-  availability_zone       = "us-east-1a"
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.1.0/24"
+  availability_zone = "us-east-1a"
   map_public_ip_on_launch = true
   tags = {
     Name = "password-cracker-public-subnet"
-  }
-}
-
-# Private Subnet
-resource "aws_subnet" "private" {
-  vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.0.2.0/24"
-  availability_zone = "us-east-1b"
-  tags = {
-    Name = "password-cracker-private-subnet"
   }
 }
 
@@ -39,7 +29,7 @@ resource "aws_internet_gateway" "gw" {
   }
 }
 
-# Route Table for Public Subnet
+# Route Table
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
   route {
@@ -103,12 +93,10 @@ resource "aws_security_group" "rds_sg" {
 
 # EC2 Instance
 resource "aws_instance" "app" {
-  ami           = "ami-0c55b159cbfafe1f0"
+  ami           = "ami-0c55b159cbfafe1f0" # Amazon Linux 2
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public.id
-  key_name      = var.key_name
   security_groups = [aws_security_group.ec2_sg.name]
-
   user_data = <<-EOF
               #!/bin/bash
               yum update -y
@@ -117,38 +105,39 @@ resource "aws_instance" "app" {
               usermod -a -G docker ec2-user
               curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
               chmod +x /usr/local/bin/docker-compose
-              su - ec2-user -c "git clone https://github.com/your-user/your-repo.git"
-              su - ec2-user -c "cd your-repo && docker-compose up -d"
+              # Clone repo (replace with your repo)
+              # git clone <your-repo>
+              # cd <your-repo>
+              # docker-compose up -d
               EOF
-
   tags = {
     Name = "password-cracker-ec2"
   }
 }
 
-# DB Subnet Group (uses private subnet)
-resource "aws_db_subnet_group" "main" {
-  name       = "password-cracker-db-subnet-group"
-  subnet_ids = [aws_subnet.private.id]
+# RDS Instance
+resource "aws_db_instance" "db" {
+  identifier           = "password-cracker-db"
+  engine               = "mysql"
+  engine_version       = "8.0"
+  instance_class       = "db.t3.micro"
+  allocated_storage    = 20
+  username             = "app_user"
+  password             = "app_pass"
+  vpc_security_group_ids = [aws_security_group.rds_sg.id]
+  db_subnet_group_name = aws_db_subnet_group.main.name
+  skip_final_snapshot  = true
+  publicly_accessible  = false
   tags = {
-    Name = "password-cracker-db-subnet-group"
+    Name = "password-cracker-rds"
   }
 }
 
-# RDS Instance
-resource "aws_db_instance" "db" {
-  identifier             = "password-cracker-db"
-  engine                 = "mysql"
-  engine_version         = "8.0"
-  instance_class         = "db.t3.micro"
-  allocated_storage      = 20
-  username               = "app_user"
-  password               = "app_pass"
-  vpc_security_group_ids = [aws_security_group.rds_sg.id]
-  db_subnet_group_name   = aws_db_subnet_group.main.name
-  skip_final_snapshot    = true
-  publicly_accessible    = false
+# DB Subnet Group
+resource "aws_db_subnet_group" "main" {
+  name       = "password-cracker-db-subnet-group"
+  subnet_ids = [aws_subnet.public.id]
   tags = {
-    Name = "password-cracker-rds"
+    Name = "password-cracker-db-subnet-group"
   }
 }

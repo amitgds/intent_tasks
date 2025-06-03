@@ -256,4 +256,3 @@ This Terraform project provisions AWS infrastructure for a password-cracker appl
 - EC2 public IP
 - RDS endpoint
 - SSH command for EC2
-

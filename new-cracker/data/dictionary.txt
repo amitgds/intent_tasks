@@ -126,3 +126,11 @@ penguin
 tokyo 
 rome 
 milan
+monkey
+hello
+dragon
+london
+secret
+hunter
+shadow
+guitar

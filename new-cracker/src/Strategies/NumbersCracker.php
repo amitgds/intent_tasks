@@ -12,22 +12,20 @@ class NumbersCracker extends BaseCracker {
     }
 
     public function crack(): array {
-        $this->logger->log("Starting numbers password cracking");
         $results = [];
         $numbers = CombinationGenerator::generateNumbers(5);
 
         foreach ($numbers as $number) {
             $hash = $this->hashPassword($number);
             $users = $this->database->query(
-                "SELECT user_id FROM not_so_smart_users WHERE password = :hash",
-                ['hash' => $hash]
+                "SELECT user_id FROM not_so_smart_users WHERE password = ?",
+                [$hash]
             );
+
             foreach ($users as $user) {
                 $results[$user['user_id']] = $number;
             }
         }
-
-        $this->logger->log("Numbers cracking completed with " . count($results) . " results");
         return $results;
     }
 }

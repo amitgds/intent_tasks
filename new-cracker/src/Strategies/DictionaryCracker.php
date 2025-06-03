@@ -13,13 +13,11 @@ class DictionaryCracker extends BaseCracker {
         parent::__construct($database, $logger, $config);
         $this->dictionaryFile = $config->get('DICTIONARY_FILE');
         if (!file_exists($this->dictionaryFile) || !is_readable($this->dictionaryFile)) {
-            $this->logger->log("Dictionary file not found or not readable: {$this->dictionaryFile}");
             throw new \Exception("Dictionary file not found or not readable: {$this->dictionaryFile}");
         }
     }
 
     public function crack(): array {
-        $this->logger->log("Starting dictionary-based password cracking");
         $results = [];
         $words = file($this->dictionaryFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
@@ -28,16 +26,14 @@ class DictionaryCracker extends BaseCracker {
             if (strlen($word) <= 6 && ctype_lower($word)) {
                 $hash = $this->hashPassword($word);
                 $users = $this->database->query(
-                    "SELECT user_id FROM not_so_smart_users WHERE password = :hash",
-                    ['hash' => $hash]
+                    "SELECT user_id FROM not_so_smart_users WHERE password = ?",
+                    [$hash]
                 );
                 foreach ($users as $user) {
                     $results[$user['user_id']] = $word;
                 }
             }
         }
-
-        $this->logger->log("Dictionary-based cracking completed with " . count($results) . " results");
         return $results;
     }
 }

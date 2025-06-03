@@ -47,7 +47,7 @@ class PasswordCrackerApi {
                     throw new \Exception("Invalid action: $action");
             }
 
-            $this->sendResponse(['status' => 'success', 'data' => $results]);
+            $this->sendResponse(['status' => 'success', 'data' => $results, 'count' => count($results)]);
         } catch (\Exception $e) {
             $this->logger->log("Error: " . $e->getMessage());
             $this->sendResponse(['status' => 'error', 'message' => $e->getMessage()], 500);
